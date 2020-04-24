@@ -1,4 +1,7 @@
-# Programming Styles -- SoSe20: Exercise 01
+Programming Styles -- SoSe20
+---
+
+# Exercise 01
 
 ## Task 1: Setup
 During this class, we will use Python (v3.7), Java (JDK11) and JavaScript (NodeJS v10.20) for the exercise sessions and the assignments. 
