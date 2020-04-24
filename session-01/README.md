@@ -20,5 +20,5 @@ Word Index is a program that takes a plain text file as input and outputs all th
 
 To complete this task you must:
 
-1. Implement Word Index in Python (an empty `word-index.py` file is already given to you)
-2. Implement at least three tests in Python using [`unittest`](https://docs.python.org/3/library/unittest.html)
+1. Implement Word Index in Python. An empty `word_index.py` file is already given to you.
+2. Implement at least three tests in Python using [`unittest`](https://docs.python.org/3/library/unittest.html). An example of unittest, `sample_unittest.py` is already given to you.
