@@ -47,7 +47,21 @@ Go to the download page for Windows at python.org and choose either the 32-bit o
 Once you have chosen and downloaded an installer, simply run it by double-clicking on the downloaded file and check the box that says **Add Python 3.x to PATH** to ensure that the interpreter will be placed in your execution path.
 
 #### Install Python3.7 (for Linux)
-> Those instructions are missing... maybe you can add them?
+First of all, try to update the repositories and also install `software-properties-common` package using the following command:
+```
+sudo apt-get update
+sudo apt-get install software-properties-common
+```
+The following command should work:
+```
+sudo apt-get install python3.7
+```
+But in case you encounter an error, you should add `deadsnakes` repository and try again:
+```
+sudo add-apt-repository ppa:deadsnakes/ppa
+sudo apt-get update
+sudo apt-get install python3.7
+```
 
 ### Install Java
 
