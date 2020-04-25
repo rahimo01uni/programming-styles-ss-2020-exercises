@@ -54,10 +54,12 @@ Once you have chosen and downloaded an installer, simply run it by double-clicki
 ##### 1.Install JDK
 If you do not already have a Java JDK on your system, please install it from [Oracle's Java site](https://docs.oracle.com/en/java/javase/11/install/installation-jdk-microsoft-windows-platforms.html#GUID-A7E27B90-A28D-4237-9383-A58B416071CA). 
 
-We will use **Java 11** in this course.Note you must install the JDK (The Java Development Kit), which includes a JVM and the tools a developer needs (e.g., javac, the Java compiler).
+We will use **Java 11** in this course.
+Note you must install the JDK (The Java Development Kit), which includes a JVM and the tools a developer needs (e.g., javac, the Java compiler).
 
 If you do not like to use Oracle's JDK you might want to use other implementations (e.g., OpenJDK)
-Check that you have the right version using:
+
+Check that you have the right version using:
 ```java -version```
 
 ##### 2. Optionally Install jEnv
@@ -65,17 +67,24 @@ jEnv is a little utility similar to PyEnv. You can read more about jEnv [here](h
 
 jEnv can be also installed using Brew:
 ```brew install jenv```
-### Install NodeJs 
 
-#### Install NodeJs (Mac Os)We use Node.js v10.20.1 LTS as the JavaScript environment in this course. 
-You're free to install it in whatever way you want, but I suggest to use `nvm` (Node Version Manager) to install and manage multiple different versions of node on your machine. 
+##### 3. Optionally Install SDKMAN!
+[SDKMAN!](https://sdkman.io/) is another alternative for managing multiple JDK installations, similar to jEnv. It gives you a wide variaty of choices to choose your JDK's vendor (Oracle, Amazon, Azul, ...). Moreover, you can install other JVM related tools such as Maven, Gradle, Scala, Groovy, ... through it. SDKMAN! installs smoothly on Mac OSX, Linux, WLS, Cygwin, Solaris, FreeBSD and you can also easily install it on your Windows machine through [Git for Windows BASH](https://git-scm.com/download/win).
+
+### Install NodeJs 
+
+#### Install NodeJs (Mac Os)
+We use Node.js v10.20.1 LTS as the JavaScript environment in this course. 
+
+You're free to install it in whatever way you want, but I suggest to use `nvm` (Node Version Manager) to install and manage multiple different versions of node on your machine. 
 
 You can install `nvm` using Homebrew:
 ```brew install nvm```
 
 Once you have nvm, you can run: 
 ```nvm install 10.20``` to install the version, and ```nvm use 10.20``` to start using that version.
-Check which version of node you are using:
+
+Check which version of node you are using:
 ```node --version```
 
 You can check which version of the V8 JavaScript virtual machine your node use using:
