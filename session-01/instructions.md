@@ -68,6 +68,10 @@ jEnv is a little utility similar to PyEnv. You can read more about jEnv [here](h
 jEnv can be also installed using Brew:
 ```brew install jenv```
 
+
+##### 3. Optionally Install SDKMAN!
+[SDKMAN!](https://sdkman.io/) is another alternative for managing multiple JDK installations, similar to jEnv. It gives you a wide variety of choices to choose your JDK's vendor (Oracle, Amazon, Azul, ...). Moreover, you can install other JVM related tools such as Maven, Gradle, Scala, Groovy, ... through it. SDKMAN! installs smoothly on Mac OSX, Linux, WLS, Cygwin, Solaris, FreeBSD, and you can also easily install it on your Windows machine through [Git for Windows BASH](https://git-scm.com/download/win).
+
 ### Install NodeJs 
 
 #### Install NodeJs (Mac Os)
