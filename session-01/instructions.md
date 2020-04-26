@@ -47,7 +47,21 @@ Go to the download page for Windows at python.org and choose either the 32-bit o
 Once you have chosen and downloaded an installer, simply run it by double-clicking on the downloaded file and check the box that says **Add Python 3.x to PATH** to ensure that the interpreter will be placed in your execution path.
 
 #### Install Python3.7 (for Linux)
-> Those instructions are missing... maybe you can add them?
+First of all, try to update the repositories and also install `software-properties-common` package using the following command:
+```
+sudo apt-get update
+sudo apt-get install software-properties-common
+```
+The following command should work:
+```
+sudo apt-get install python3.7
+```
+But in case you encounter an error, you should add `deadsnakes` repository and try again:
+```
+sudo add-apt-repository ppa:deadsnakes/ppa
+sudo apt-get update
+sudo apt-get install python3.7
+```
 
 ### Install Java
 
@@ -67,6 +81,7 @@ jEnv is a little utility similar to PyEnv. You can read more about jEnv [here](h
 
 jEnv can be also installed using Brew:
 ```brew install jenv```
+
 
 ##### 3. Optionally Install SDKMAN!
 [SDKMAN!](https://sdkman.io/) is another alternative for managing multiple JDK installations, similar to jEnv. It gives you a wide variety of choices to choose your JDK's vendor (Oracle, Amazon, Azul, ...). Moreover, you can install other JVM related tools such as Maven, Gradle, Scala, Groovy, ... through it. SDKMAN! installs smoothly on Mac OSX, Linux, WLS, Cygwin, Solaris, FreeBSD, and you can also easily install it on your Windows machine through [Git for Windows BASH](https://git-scm.com/download/win).
@@ -91,7 +106,18 @@ You can check which version of the V8 JavaScript virtual machine your node use u
 ```node -p process.versions.v8```
 
 #### Install NodeJs (Windows)
-> Those instructions are missing... maybe you can add them?
+There is two possible way for installing the NodeJS on your Windows Machine.
+
+##### 1. Install NodeJs using the official installer
+You can find [this page](https://nodejs.org/en/download/) to download and use the official installer. However, the latest LTS version is 12.16.2, but you can find older versions on [this page](https://nodejs.org/dist/). For installing version 10.20.1, you can use [this link](https://nodejs.org/dist/v10.20.1/). There you can choose `node-v10.20.1-x64.msi` in case your Windows machine is 64-bit.
+
+##### 2. Install NodeJs using Chocolatey package manager
+[Chocolatey](https://chocolatey.org/) is a package manager for Windows. You can install it via PowerShell. You can find the installation instruction [here](https://chocolatey.org/install).
+If you have already installed Chocolatey, then you can easily use the following command:
+```
+choco install nodejs --version=10.20.1
+```
+Please note that you need to run the PowerShell as administrator, but after that, `node` is accessible through any other Terminal.
 
 #### Install NodeJs (Linux)
 > Those instructions are missing... maybe you can add them?
