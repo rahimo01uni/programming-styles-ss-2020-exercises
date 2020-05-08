@@ -1,0 +1,44 @@
+Agenda 
+ - Task 1: Setup + Assignment
+	- Setup/Installation  (JDK 11, Javascript/Node, Python 3+)
+		- Tests
+		- jEnv (Mac), pyEnv (Mac)
+		- Docker (e.g., openjdk:11) - last resort
+
+	- Checking out GitHub Assignments
+		- Iran and possibly other "banner country"
+
+	- Register on HISQIS
+		- Before 10/05/2020
+		- MES
+
+	- Organization of the Assignment
+		- Create an Assignment -> I cannot change it
+			- keep the assignment to a minimum (brief task + skeleton)
+			- Public repos (that you are suggested to import as submodule)
+				- public-tests - live/community driven
+				- program-descriptions  - live/community driven
+				-> You have to pull the changes from the submodules
+			- Private tests
+
+			- you need to pull frequently so you can see the test reports
+
+		- TODO: Double check the deadline (15/05/2020 - 23:59 PM +02:00),
+			POST on home page
+
+	>> How DO YOU test your programs?
+ 		DO NOT NECESSARILY RELY ON JUST PUBLIC TESTS
+
+
+	- How run to tests locally
+		- Test environment on Windows
+			- Running WSL
+		- You can use your "own" setup
+		- You can use this run-test.sh -> .bat/.ps1 (Powershell)
+		- "Import" the tests into your IDE (Eclipse, IntelliJ)
+
+	- Automatic test execution
+
+ - Task 2: Implementation
+	- Implement Word Index (Python + Monolithic)
+	- Write test cases
