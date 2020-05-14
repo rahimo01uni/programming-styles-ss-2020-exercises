@@ -2,7 +2,7 @@
 #!/bin/sh
 grep -o "[A-Za-z][A-Za-z][A-Za-z]*" $1 \
     | tr '[:upper:]' '[:lower:]' \
-    | grep -Ev "^($(sed  -e 's/,/|/g' ./stop_words.txt))$" \
+    | grep -Ev "^($(sed  -e 's/,/|/g' ../stop_words.txt))$" \
     | sort \
     | uniq -c \
     | sort -rn \
