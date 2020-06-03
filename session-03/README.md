@@ -17,6 +17,6 @@ To complete this task you must: Implement the Word Index program using the **Thi
 
 To complete this task you must: Implement the Word Index program using the **Closed-maps Style** 
 
-## Task 2: The Letterbox Style
+## Task 3: The Letterbox Style
 
 To complete this task you must: Implement the Word Index program using the **Letterbox Style** 
