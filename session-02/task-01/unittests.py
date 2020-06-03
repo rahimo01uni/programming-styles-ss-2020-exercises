@@ -18,12 +18,10 @@ from word_index import main as wi_main
 
 
 
-# Import the monolithic main used as oracle
-from monolithic_word_index import main as oracle_main
-
 # https://simpleit.rocks/python/test-files-creating-a-temporal-directory-in-python-unittests/
 
-# This will not work because main expects a str, bytes or os.PathLike object, not _io.TextIOWrapper
+# This will not work because main expects a str, bytes or os.PathLike object,
+# not _io.TextIOWrapper
 # with tempfile.TemporaryFile('w') as tmp_file:
         #     print('created temporary file', tmp_file)
         #     # Fill the temp file
@@ -47,10 +45,11 @@ class TestWordIndexUsingTempFiles(unittest.TestCase):
 
         temp_file = os.path.join(self.test_dir.name, "input.txt")
 
-        expected_output = '\n'.join(["bar - 1", "foo - 1",""])
-
         with open(temp_file, 'w') as f:
             f.writelines('\n'.join(["foo", "bar"]))
+
+        expected_output = '\n'.join(["bar - 1", "foo - 1",""])
+
 
         with io.StringIO() as buf, redirect_stdout(buf):
             # Invoke main passing the temp file

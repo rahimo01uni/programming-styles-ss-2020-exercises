@@ -24,6 +24,7 @@ def initDataStorageManager(obj, path_to_file):
     with open(path_to_file) as f:
         # Q1: Is this a violation of the style? Should we use obj['data'] instead ?
         data = f.read()
+
     obj['_lines'] = data.split('\n')
     pattern = re.compile('[\W_]+')
     for idx in range(len(obj['_lines'])):
@@ -47,10 +48,9 @@ def increment_word_count(obj, word, page):
         obj['_word_freqs'][word] = (1, [page])
 
 
-def get_filtered_sorted_output(obj):
-    obj['_word_freqs'] = {k: v for k, v in obj['_word_freqs'].items() if v[0] <= 100}
-    return sorted(obj['_word_freqs'].items())
-
+def get_filtered_sorted_output(self_obj):
+    self_obj['_word_freqs'] = {k: v for k, v in self_obj['_word_freqs'].items() if v[0] <= 100}
+    return sorted(self_obj['_word_freqs'].items())
 
 def main(file_path):
 
@@ -62,7 +62,7 @@ def main(file_path):
         'init': lambda path_to_file: initDataStorageManager(dataStorageManagerObject, path_to_file),
         'has_next_line': lambda: dataStorageManagerObject['_currentLine'] < len(dataStorageManagerObject['_lines']),
         'next_line': lambda: retrieveNextLine(dataStorageManagerObject),
-        # Q2: Is this a violation of the style?
+        # THIS IS NOT A VIOLATION
         'line_number': lambda: dataStorageManagerObject['_currentLine']
     }
     dataStorageManagerObject['init'](file_path)
@@ -76,9 +76,10 @@ def main(file_path):
     }
 
     while dataStorageManagerObject['has_next_line']():
-        line = dataStorageManagerObject['next_line']()
+        words = dataStorageManagerObject['next_line']()
         line_number = dataStorageManagerObject['line_number']()
-        for w in line:
+
+        for w in words:
             word_frequency_manager_object['increment_count'](w, int(line_number/ 45) + 1)
 
     word_freqs = word_frequency_manager_object['filter_and_sort']()

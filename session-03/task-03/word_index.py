@@ -27,6 +27,7 @@ from abc import ABCMeta
 
 
 class DataStorageManager():
+
     def dispatch(self, message):
         if message[0] == 'init':
             return self._init(message[1])
@@ -90,11 +91,12 @@ class WordFrequencyManager():
             self._word_freqs[word] = (1, [page])
 
     def _filter_and_sort(self):
-        filtered_dict = self._word_filter._filter_by_frequency(self._word_freqs)
+        filtered_dict = self._word_filter.dispatch(['filter_by_frequency', self._word_freqs])
         return sorted(filtered_dict.items())
 
 
 class WordFrequencyController():
+
     def dispatch(self, message):
         if message[0] == 'init':
             self._init(message[1])
@@ -120,6 +122,7 @@ class WordFrequencyController():
         word_freqs = self._word_freq_manager.dispatch(['filter_and_sort'])
         for tf in word_freqs:
             print(tf[0], '-', str(tf[1][1])[1:-1])
+
 
 def main(file_path):
     wordFrequencyController = WordFrequencyController()

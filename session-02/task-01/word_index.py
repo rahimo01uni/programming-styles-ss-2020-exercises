@@ -27,7 +27,7 @@ STOP_FREQUENCY_LIMIT = 100
 data = None
 lines = None
 word_freqs = None
-stop_words = None
+# stop_words = None
 word_index = None
 
 
@@ -40,10 +40,11 @@ def read_file(path_to_file):
     with open(path_to_file) as f:
         data = data + list(f.read())
 
-
+# Q: Does this violate the style?
 def filter_chars_and_normalize():
     """
-    Remove all the non alphanumeric chars from the data, but keep the '\n'
+    Replacing all the non alphanumeric chars from the data with spaces,
+    but keep the '\n'
     """
 
     global data
@@ -71,13 +72,17 @@ def scan_lines():
 
 def frequencies():
     """
-    Scan words in each line, count their frequency, update the stop words,
+    Scan words in each line,
+    count their frequency,
+    update the stop words,
     store current page if not there yet
     """
     # Q: Does this procedure violate the style?
     # Q: Can this procedure be improved? If yes, how?
     global lines
     global word_freqs
+
+    stop_words = []
 
     line_index = 0
     current_page = 0
@@ -113,14 +118,14 @@ def main(file_path):
     global data
     global lines
     global word_freqs
-    global stop_words
+    # global stop_words
     global word_index
 
     # Initialize the global variables to ensure there will be no state pollution in tests
     data = []
     lines = []
     word_freqs = []
-    stop_words = []
+    # stop_words = []
     word_index = []
 
     # The Main as sequence
@@ -130,6 +135,7 @@ def main(file_path):
     frequencies()
     sort()
 
+    # I could have implemented this into a print_all()
     for tf in word_freqs:
         print(tf[0], '-', str(tf[2])[1:-1])
 

@@ -66,10 +66,12 @@ def frequencies(lines):
         line_index += 1
     return word_freqs
 
+
 def filter_by_frequency(word_freqs):
     # Q: Is there some other pythonic way to implement this?
     # Q: How can we get rid of "STOP_FREQUENCY_LIMIT"?
     return filter(lambda x: x[1] < STOP_FREQUENCY_LIMIT, word_freqs)
+
 
 def sort(word_freqs):
     return sorted(list(word_freqs), key=lambda x: x[0], reverse=False)
@@ -80,8 +82,10 @@ def print_words(word_freqs):
         print(tf[0], '-', str(tf[2])[1:-1])
 
 
-def main(file_path):
+def main(file_path ):
+
     # Q: Does the following code violate the style?
+    # Piping
     data = read_file(file_path)
     data = filter_chars_and_normalize(data)
     words = scan(data)
