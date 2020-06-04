@@ -9,13 +9,12 @@ from contextlib import redirect_stdout
 from unittest.mock import patch, mock_open
 
 # Import the program under test.
-# Q: If I move the import INSIDE the test, will global variable automatically re-evaluated?
 from word_index import main as wi_main
 
 # Import the monolithic main used as oracle
 from monolithic_word_index import main as oracle_main
 
-class TestWordIndexUsingMonolithic(unittest.TestCase):
+class TestWordIndex(unittest.TestCase):
 
     def test_program_with_few_lines(self):
         # Print name of this test
@@ -93,30 +92,20 @@ class TestWordIndexUsingMonolithic(unittest.TestCase):
         # Assert that the two output matches
         self.assertEqual(output, expected_output, msg="Output does not match")
 
-class TestWordIndexUsingMocks(unittest.TestCase):
+    def test_program_with_long_file(self):
+        # Print name of this test
+        print(self.__class__.__name__ + " - " +inspect.stack()[0][3])
 
-    def test_output_with_a_mocked_file(self):
-        print(self.__class__.__name__ + " - " + inspect.stack()[0][3])
+        real_file_path="../test-data/long.txt"
 
-        fake_file_path="/fake/file/path"
+        expected_output = oracle_main(real_file_path)
 
-        lines= ["foo", "bar", ""] # the last empty line ensures that we have a final '\n'
-
-        fake_file = io.StringIO('\n'.join(lines))
-
-        # Execute main and be sure you capture the output but use mocking to fake a file read by the program
         with io.StringIO() as buf, redirect_stdout(buf):
-
-            with patch('word_index.open', return_value=fake_file, create=True):
-                wi_main(fake_file_path)
-
+            wi_main(real_file_path)
             output = buf.getvalue()
 
-        # Check the output is not None
-        self.assertIsNotNone(output, msg="Output cannot be None")
-
-        # Check the output is not empty
-        self.assertNotEqual(output, '', msg="Output cannot be empty")
+        # Assert that the two output matches
+        self.assertEqual(output, expected_output, msg="Output does not match")
 
     def test_output_with_empty_file(self):
         print(self.__class__.__name__ + " - " +inspect.stack()[0][3])
@@ -179,7 +168,7 @@ class TestWordIndexUsingMocks(unittest.TestCase):
         self.assertEqual(expected_n_lines, len(output_lines),
                          msg="Output has wrong number of lines")
         self.assertEqual(expected_output_string, output, msg="Wrong output")
-
+#
 
 if __name__ == '__main__':
     unittest.main()
